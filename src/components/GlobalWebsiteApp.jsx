@@ -17,7 +17,7 @@ const GlobalWebsiteApp = () => {
                             <div className="app-card-media">
                                 <img src="https://picsum.photos/seed/truckload/640/400" alt="" width="640" height="400"
                                     loading="lazy" />
-                                <span className="app-card-badge">Logistics</span>
+                                <span className="app-card-badge">Testing</span>
                             </div>
                             <div className="app-card-body">
                                 <h2 className="app-card-title">TruckLoad</h2>
@@ -55,7 +55,7 @@ const GlobalWebsiteApp = () => {
                             <div className="app-card-media">
                                 <img src="https://picsum.photos/seed/inventory/640/400" alt="" width="640" height="400"
                                     loading="lazy" />
-                                <span className="app-card-badge">Inventory</span>
+                                <span className="app-card-badge">Inventory App</span>
                             </div>
                             <div className="app-card-body">
                                 <h2 className="app-card-title">Inventory</h2>
@@ -74,7 +74,7 @@ const GlobalWebsiteApp = () => {
                             <div className="app-card-media">
                                 <img src="https://picsum.photos/seed/abuzz/640/400" alt="" width="640" height="400"
                                     loading="lazy" />
-                                <span className="app-card-badge">Hub</span>
+                                <span className="app-card-badge">Flipkart Hub</span>
                             </div>
                             <div className="app-card-body">
                                 <h2 className="app-card-title">Abuzz</h2>
@@ -93,7 +93,7 @@ const GlobalWebsiteApp = () => {
                             <div className="app-card-media">
                                 <img src="https://picsum.photos/seed/homeindex/640/400" alt="" width="640" height="400"
                                     loading="lazy" />
-                                <span className="app-card-badge">Home</span>
+                                <span className="app-card-badge">Amazon Home</span>
                             </div>
                             <div className="app-card-body">
                                 <h2 className="app-card-title">Site index</h2>
