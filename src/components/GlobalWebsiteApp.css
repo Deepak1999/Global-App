@@ -1,0 +1,425 @@
+/* :root {
+    --bg-deep: #1a120e;
+    --bg-card: #2a1f18;
+    --bg-card-hover: #352820;
+    --border: rgba(255, 153, 51, 0.12);
+    --text: #fdf6ed;
+    --muted: #b8a898;
+    --accent: #ff9933;
+    --accent-dim: rgba(255, 153, 51, 0.18);
+    --glow: rgba(255, 153, 51, 0.35);
+    --radius: 16px;
+    --radius-sm: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 4rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 153, 51, 0.14), transparent),
+        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(19, 136, 8, 0.1), transparent),
+        radial-gradient(ellipse 50% 35% at 0% 100%, rgba(128, 0, 32, 0.08), transparent);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+.site-header {
+    padding: 3rem 0 2.5rem;
+    text-align: center;
+}
+
+.site-header .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.site-header .eyebrow::before,
+.site-header .eyebrow::after {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.6;
+}
+
+.site-header h1 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #fff8f0 0%, #ffcc80 45%, #e8f5e9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.site-header .lead {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 32rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.app-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 153, 51, 0.22);
+    border-color: rgba(255, 153, 51, 0.28);
+    background: var(--bg-card-hover);
+}
+
+.app-card-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.app-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-card:hover .app-card-media img {
+    transform: scale(1.06);
+}
+
+.app-card-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(26, 18, 14, 0.88) 100%);
+    pointer-events: none;
+}
+
+.app-card-badge {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    z-index: 1;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    background: var(--accent-dim);
+    color: #ffb366;
+    border: 1px solid rgba(255, 153, 51, 0.35);
+}
+
+.app-card-body {
+    padding: 1.25rem 1.25rem 1.35rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-card-title {
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 0.4rem;
+    color: var(--text);
+}
+
+.app-card-desc {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0 0 1rem;
+    flex: 1;
+}
+
+.app-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.app-card-link:hover {
+    color: #ffd699;
+    gap: 0.55rem;
+}
+
+.app-card-link svg {
+    width: 14px;
+    height: 14px;
+}
+
+.row.g-4 {
+    --bs-gutter-y: 1.5rem;
+    --bs-gutter-x: 1.5rem;
+}
+
+footer.gallery-foot {
+    text-align: center;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+} */
+
+/* White theam css */
+
+:root {
+    --bg-deep: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f8fafc;
+    --border: rgba(15, 23, 42, 0.08);
+    --text: #0f172a;
+    --muted: #64748b;
+    --accent: #2563eb;
+    --accent-dim: rgba(37, 99, 235, 0.1);
+    --radius: 16px;
+    --radius-sm: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    background: var(--bg-deep);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 4rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(241, 245, 249, 0.85), transparent 50%),
+        radial-gradient(ellipse 40% 30% at 100% 100%, rgba(37, 99, 235, 0.04), transparent);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.page-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+.site-header {
+    padding: 3rem 0 2.5rem;
+    text-align: center;
+}
+
+.site-header .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.site-header .eyebrow::before,
+.site-header .eyebrow::after {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.6;
+}
+
+.site-header h1 {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #0f172a 0%, #334155 55%, #1e40af 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.site-header .lead {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 32rem;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.app-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 8px 24px -8px rgba(15, 23, 42, 0.06);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.35s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.12);
+    border-color: rgba(37, 99, 235, 0.2);
+    background: var(--bg-card-hover);
+}
+
+.app-card-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+}
+
+.app-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-card:hover .app-card-media img {
+    transform: scale(1.06);
+}
+
+.app-card-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 35%, rgba(15, 23, 42, 0.55) 100%);
+    pointer-events: none;
+}
+
+.app-card-badge {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    z-index: 1;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--accent);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.app-card-body {
+    padding: 1.25rem 1.25rem 1.35rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-card-title {
+    font-family: "Outfit", sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0 0 0.4rem;
+    color: var(--text);
+}
+
+.app-card-desc {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0 0 1rem;
+    flex: 1;
+}
+
+.app-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.app-card-link:hover {
+    color: #1d4ed8;
+    gap: 0.55rem;
+}
+
+.app-card-link svg {
+    width: 14px;
+    height: 14px;
+}
+
+.row.g-4 {
+    --bs-gutter-y: 1.5rem;
+    --bs-gutter-x: 1.5rem;
+}
+
+footer.gallery-foot {
+    text-align: center;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+}
