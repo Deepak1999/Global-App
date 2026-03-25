@@ -1,6 +1,6 @@
 /* Black theam css */
 
-/* :root {
+:root {
     --bg-deep: #1a120e;
     --bg-card: #2a1f18;
     --bg-card-hover: #352820;
@@ -210,11 +210,11 @@ footer.gallery-foot {
     border-top: 1px solid var(--border);
     color: var(--muted);
     font-size: 0.85rem;
-} */
+}
 
 /* White theam css */
 
-:root {
+/* :root {
     --bg-deep: #ffffff;
     --bg-card: #ffffff;
     --bg-card-hover: #f8fafc;
@@ -424,4 +424,4 @@ footer.gallery-foot {
     border-top: 1px solid var(--border);
     color: var(--muted);
     font-size: 0.85rem;
-}
+} */

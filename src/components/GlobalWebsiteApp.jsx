@@ -8,7 +8,7 @@ const GlobalWebsiteApp = () => {
             <div className="container">
                 <header className="site-header">
                     <p className="eyebrow">Workspace</p>
-                    <h1>Application Gallery</h1>
+                    <h1>Application Directory</h1>
                     <p className="lead">A responsive grid of your tools—open any card to jump in. Built for clarity on every
                         screen size.</p>
                 </header>
@@ -18,7 +18,7 @@ const GlobalWebsiteApp = () => {
                             className="col-12 col-sm-6 col-lg-4 col-xl-3"
                             key={app.href || app.title}
                         >
-                            <article className="app-card">
+                            <article className="app-card" style={{cursor: 'pointer'}}>
                                 <div className="app-card-media">
                                     <img
                                         src={app.imageSrc}
@@ -29,10 +29,10 @@ const GlobalWebsiteApp = () => {
                                     />
                                     <span className="app-card-badge">{app.badge}</span>
                                 </div>
-                                <div className="app-card-body">
+                                <div className="app-card-body" style={{cursor: 'pointer'}}>
                                     <h2 className="app-card-title">{app.title}</h2>
                                     <p className="app-card-desc">{app.desc}</p>
-                                    <a className="app-card-link" href={app.href}>
+                                    <a className="app-card-link" href={app.href} target="_blank" rel="noopener noreferrer">
                                         Open app
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -54,8 +54,8 @@ const GlobalWebsiteApp = () => {
                     ))}
                 </div>
                 <footer className="gallery-foot">
-                    Images via <a href="https://picsum.photos" className="text-decoration-none"
-                        style={{ color: 'var(--accent)' }}>Picsum</a> — replace URLs with your own screenshots or icons anytime.
+                    Images via <a href="https://www.altruistindia.com/" className="text-decoration-none"
+                        style={{ color: 'var(--accent)' }}>Altruist India</a> — replace URLs with your own screenshots or icons anytime.
                 </footer>
             </div>
         </div>
